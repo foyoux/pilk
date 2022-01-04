@@ -10,7 +10,7 @@ def encode(
         packet_loss: int = 0,
         use_in_band_fec: bool = False,
         use_dtx: bool = False
-) -> tuple[str, int]:
+) -> int:
     """silk 编码
 
     :param pcm: str: pcm 输入文件路径
@@ -24,7 +24,7 @@ def encode(
     :param packet_loss: Uplink loss estimate, in percent (0-100); default: 0
     :param use_in_band_fec: Enable inband FEC usage (0/1); default: 0
     :param use_dtx: Enable DTX (0/1); default: 0
-    :return: (<silk文件路径>, <silk文件持续时间>)
+    :return: int: silk文件持续时间
     """
 
 
@@ -33,12 +33,12 @@ def decode(
         pcm: str,
         pcm_rate: int = 24000,
         packet_loss: int = 0
-) -> tuple[str, int]:
+) -> int:
     """silk 解码
 
     :param silk: str： silk 输入文件路径
     :param pcm: str： 输出保存 pcm 的文件路径
     :param pcm_rate: int(hz)[可选]: 输入 pcm 文件的 rate, 默认: 24000. 可选值为 [8000, 12000, 16000, 24000, 32000, 44100, 48000]
     :param packet_loss: Uplink loss estimate, in percent (0-100); default: 0
-    :return: (<pcm 文件路径>, <pcm 文件时间>)
+    :return: int: pcm 文件持续时间
     """
