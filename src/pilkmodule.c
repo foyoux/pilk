@@ -356,7 +356,7 @@ silk_encode(PyObject *Py_UNUSED(module), PyObject *args, PyObject *keyword_args)
 
     filetime = totPackets * 1e-3 * packetSize_ms;
 
-    return Py_BuildValue("Oi", bitOutFileName, (int) filetime);
+    return Py_BuildValue("Si", bitOutFileName, (int) filetime);
 }
 
 
@@ -703,5 +703,5 @@ silk_decode(PyObject *Py_UNUSED(module), PyObject *args, PyObject *keyword_args)
 
     filetime = totPackets * 1e-3 * packetSize_ms;
 
-    return Py_BuildValue("si", speechOutFileName, (int) filetime);
+    return Py_BuildValue("Si", speechOutFileName, (int) filetime);
 }
