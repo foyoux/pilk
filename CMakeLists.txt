@@ -8,7 +8,7 @@ set(CMAKE_C_STANDARD 99)
 set(CMAKE_C_STANDARD_REQUIRED True)
 
 # Python相关
-set(PYTHON_HOME "C:/Users/foyou/AppData/Local/Programs/Python/Python310")
+set(PYTHON_HOME "C:/Users/foyou/AppData/Local/Programs/Python/Python_d310")
 include_directories(${PYTHON_HOME}/include)
 link_directories(${PYTHON_HOME}/libs)
 
