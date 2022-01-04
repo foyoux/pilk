@@ -6,7 +6,7 @@ SKP_SILK_SRC = 'src/SKP_SILK_SRC/'
 sources = glob(SKP_SILK_SRC + '*.c')
 sources.append('src/pilkmodule.c')
 
-pilk = Extension(
+pilkmodule = Extension(
     name='pilk._pilk',
     sources=sources,
     include_dirs=[SKP_SILK_SRC, 'src/interface']
@@ -17,7 +17,7 @@ with open('README.md', encoding='utf8') as f:
 
 setup(
     name='pilk',
-    version='1.0.0',
+    version='0.0.1',
     description='python silk voice library',
     long_description=long_description,
     author='foyou',
@@ -29,7 +29,7 @@ setup(
     license_files=['LICENSE'],
     keywords=['silk', 'voice', 'python', 'extension', 'wechat', 'qq', 'tencent', 'xposed', 'c/c++'],
     python_requires='>=3.6',
-    ext_modules=[pilk],
+    ext_modules=[pilkmodule],
     zip_safe=False,
     packages=['pilk'],
     package_data={
