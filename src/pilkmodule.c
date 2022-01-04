@@ -25,9 +25,6 @@ ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ***********************************************************************/
 
-//#define Py_LIMITED_API
-//#define PY_VERSION_HEX 0x03060000
-
 #define PY_SSIZE_T_CLEAN
 
 #include <Python.h>
@@ -186,13 +183,6 @@ silk_encode(PyObject *Py_UNUSED(module), PyObject *args, PyObject *keyword_args)
         // 返回 null，无需手动设置错误，PyArg_ParseTupleAndKeywords 会自动处理
         return NULL;
     }
-
-    // 处理 silk
-    //  if (bitOutFileName == NULL) {
-    //      bitOutFileName = "";
-    //      strcpy(bitOutFileName, speechInFileName);
-    //      strcat(bitOutFileName, ".silk");
-    //  }
 
     // 处理 silk_rate
     if (targetRate_bps == -1) {
@@ -432,18 +422,7 @@ silk_decode(PyObject *Py_UNUSED(module), PyObject *args, PyObject *keyword_args)
         return NULL;
     }
 
-    // 处理 silk
-//    if (speechOutFileName == NULL) {
-//        speechOutFileName = "";
-//    }
-
-//    if (strcmp(speechOutFileName, "") == 0) {
-//        strcpy(speechOutFileName, bitInFileName);
-//        strcat(speechOutFileName, ".pcm");
-//    }
-
     /* Open files */
-//    bitInFile = fopen(bitInFileName, "rb");
     bitInFile = _Py_fopen_obj(bitInFileName, "rb");
     if (bitInFile == NULL) {
 
@@ -493,16 +472,11 @@ silk_decode(PyObject *Py_UNUSED(module), PyObject *args, PyObject *keyword_args)
 
     /* Create decoder */
     SKP_Silk_SDK_Get_Decoder_Size(&decSizeBytes);
-//    if (ret) {
-//        printf("\nSKP_Silk_SDK_Get_Decoder_Size returned %d", ret);
-//    }
+
     psDec = malloc(decSizeBytes);
 
     /* Reset decoder */
     SKP_Silk_SDK_InitDecoder(psDec);
-//    if (ret) {
-//        printf("\nSKP_Silk_InitDecoder returned %d", ret);
-//    }
 
     totPackets = 0;
     payloadEnd = payload;
@@ -583,10 +557,7 @@ silk_decode(PyObject *Py_UNUSED(module), PyObject *args, PyObject *keyword_args)
             frames = 0;
             do {
                 /* Decode 20 ms */
-                ret = SKP_Silk_SDK_Decode(psDec, &DecControl, 0, payloadToDec, nBytes, outPtr, &len);
-//                if (ret) {
-//                    printf("\nSKP_Silk_SDK_Decode returned %d", ret);
-//                }
+                SKP_Silk_SDK_Decode(psDec, &DecControl, 0, payloadToDec, nBytes, outPtr, &len);
 
                 frames++;
                 outPtr += len;
@@ -603,10 +574,7 @@ silk_decode(PyObject *Py_UNUSED(module), PyObject *args, PyObject *keyword_args)
             /* Loss: Decode enough frames to cover one packet duration */
             for (i = 0; i < DecControl.framesPerPacket; i++) {
                 /* Generate 20 ms */
-                ret = SKP_Silk_SDK_Decode(psDec, &DecControl, 1, payloadToDec, nBytes, outPtr, &len);
-//                if (ret) {
-//                    printf("\nSKP_Silk_Decode returned %d", ret);
-//                }
+                SKP_Silk_SDK_Decode(psDec, &DecControl, 1, payloadToDec, nBytes, outPtr, &len);
                 outPtr += len;
                 tot_len += len;
             }
@@ -693,10 +661,7 @@ silk_decode(PyObject *Py_UNUSED(module), PyObject *args, PyObject *keyword_args)
 
             /* Generate 20 ms */
             for (i = 0; i < DecControl.framesPerPacket; i++) {
-                ret = SKP_Silk_SDK_Decode(psDec, &DecControl, 1, payloadToDec, nBytes, outPtr, &len);
-//                if (ret) {
-//                    printf("\nSKP_Silk_Decode returned %d", ret);
-//                }
+                SKP_Silk_SDK_Decode(psDec, &DecControl, 1, payloadToDec, nBytes, outPtr, &len);
                 outPtr += len;
                 tot_len += len;
             }
