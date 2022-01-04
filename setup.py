@@ -17,9 +17,10 @@ with open('README.md', encoding='utf8') as f:
 
 setup(
     name='pilk',
-    version='0.0.1',
+    version='0.0.2',
     description='python silk voice library',
     long_description=long_description,
+    long_description_content_type='text/markdown',
     author='foyou',
     author_email='yimi.0822@qq.com',
     maintainer='foyou',
