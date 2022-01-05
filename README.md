@@ -100,7 +100,7 @@ data**](https://en.wikipedia.org/wiki/Pulse-code_modulation) 完成的
     4. `<音频输出文件>`: 扩展名要准确，没有指定格式时，**ffmpeg** 会根据给定的输出文件扩展名来判断需要输出的格式
     5. example3: `ffmpeg -y -f s16le -i test.pcm test.mp3`
 
-> ffmpeg 也可以使用 python ffmpeg binding 替换，[ffmpeg-python](https://github.com/kkroening/ffmpeg-python) 大家自行研究，这里不再啰嗦。
+> ffmpeg 也可以使用 python ffmpeg binding 替换，推荐 [PyAV](https://github.com/PyAV-Org/PyAV) 大家自行研究，这里不再啰嗦。
 
 讲完了 音频文件 ⇔ PCM，接下来就是用 **pilk** 进行 PCM ⇔ 语音文件 互转
 
