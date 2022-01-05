@@ -127,3 +127,20 @@ duration = pilk.decode("test.silk", "test.pcm")
 
 print("语音时间为:", duration)
 ```
+
+## 使用 Python 转任意媒体文件到 SILK
+```python
+import os,pilk
+from pydub import AudioSegment
+
+def convert_to_silk(media_path: str) -> str:
+    """将输入的媒体文件转出为 silk, 并返回silk路径"""
+    media = AudioSegment.from_file(media_path)
+    pcm_path = os.path.basename(media_path)
+    pcm_path = os.path.splitext(pcm_path)[0]
+    silk_path = pcm_path + '.silk'
+    pcm_path += '.pcm'
+    media.export(pcm_path, 's16le', parameters=['-ar', str(media.frame_rate), '-ac', '1']).close()
+    pilk.encode(pcm_path, silk_path, pcm_rate=media.frame_rate, tencent=True)
+    return silk_path
+```
