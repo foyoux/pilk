@@ -6,7 +6,7 @@ pilk: python + silk
 
 ## 安装
 
-[![python version](https://img.shields.io/pypi/pyversions/pilk)](https://pypi.org/project/aligo/)  [![downloads](https://static.pepy.tech/personalized-badge/pilk?period=total&units=international_system&left_color=black&right_color=orange&left_text=Downloads)](https://pepy.tech/project/pilk)
+[![python version](https://img.shields.io/pypi/pyversions/pilk)](https://pypi.org/project/pilk/)  [![downloads](https://static.pepy.tech/personalized-badge/pilk?period=total&units=international_system&left_color=black&right_color=orange&left_text=Downloads)](https://pepy.tech/project/pilk)
 
 ```bash
 pip install pilk
