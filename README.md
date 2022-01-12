@@ -22,7 +22,7 @@ pip install pilk
 **Tencent** 系语音支持来自 [silk-v3-decoder](https://github.com/kn007/silk-v3-decoder)
 
 [v0.0.1 release ](https://github.com/foyoux/pilk/releases/tag/v0.0.1)
-中也包含 [silk-v3-decoder](https://github.com/kn007/silk-v3-decoder) 重编译的 **x64-win** 版本
+中也包含 [silk-v3-decoder](https://github.com/kn007/silk-v3-decoder) 重编译的 **x64-win** 版本，支持中文，[源代码](https://github.com/foyoux/silk-codec)
 
 ### **SILK** 编码格式 和 **Tencent** 系语音的关系：
 
