@@ -22,7 +22,8 @@ pip install pilk
 **Tencent** 系语音支持来自 [silk-v3-decoder](https://github.com/kn007/silk-v3-decoder)
 
 [v0.0.1 release ](https://github.com/foyoux/pilk/releases/tag/v0.0.1)
-中也包含 [silk-v3-decoder](https://github.com/kn007/silk-v3-decoder) 重编译的 **x64-win** 版本，支持中文，[源代码](https://github.com/foyoux/silk-codec)
+中也包含 [silk-v3-decoder](https://github.com/kn007/silk-v3-decoder) 重编译的 **x64-win**
+版本，支持中文，[源代码](https://github.com/foyoux/silk-codec)
 
 ### **SILK** 编码格式 和 **Tencent** 系语音的关系：
 
@@ -129,9 +130,13 @@ print("语音时间为:", duration)
 ```
 
 ## 使用 Python 转任意媒体文件到 SILK
+
+使用 [pudub](https://github.com/jiaaro/pydub) 依赖 [ffmpeg](https://www.ffmpeg.org/)
+
 ```python
-import os,pilk
+import os, pilk
 from pydub import AudioSegment
+
 
 def convert_to_silk(media_path: str) -> str:
     """将输入的媒体文件转出为 silk, 并返回silk路径"""
@@ -142,5 +147,43 @@ def convert_to_silk(media_path: str) -> str:
     pcm_path += '.pcm'
     media.export(pcm_path, 's16le', parameters=['-ar', str(media.frame_rate), '-ac', '1']).close()
     pilk.encode(pcm_path, silk_path, pcm_rate=media.frame_rate, tencent=True)
+    return silk_path
+```
+
+使用 [pyav](https://github.com/PyAV-Org/PyAV) **推荐**
+
+```python
+import os
+
+import av
+
+import pilk
+
+
+def to_pcm(in_path: str) -> tuple[str, int]:
+    """任意媒体文件转 pcm"""
+    out_path = os.path.splitext(in_path)[0] + '.pcm'
+    with av.open(in_path) as in_container:
+        in_stream = in_container.streams.audio[0]
+        sample_rate = in_stream.codec_context.sample_rate
+        with av.open(out_path, 'w', 's16le') as out_container:
+            out_stream = out_container.add_stream(
+                'pcm_s16le',
+                rate=sample_rate,
+                layout='mono'
+            )
+            for frame in in_container.decode(in_stream):
+                frame.pts = None
+                for packet in out_stream.encode(frame):
+                    out_container.mux(packet)
+    return out_path, sample_rate
+
+
+def convert_to_silk(media_path: str) -> str:
+    """任意媒体文件转 silk, 返回silk路径"""
+    pcm_path, sample_rate = to_pcm(media_path)
+    silk_path = os.path.splitext(pcm_path)[0] + '.silk'
+    pilk.encode(pcm_path, silk_path, pcm_rate=sample_rate, tencent=True)
+    os.remove(pcm_path)
     return silk_path
 ```
