@@ -4,6 +4,8 @@ python silk codec binding 支持微信语音编解码
 
 pilk: python + silk
 
+关联项目: [weixin-wxposed-silk-voice](https://github.com/foyoux/weixin-wxposed-silk-voice)
+
 ## 安装
 
 [![python version](https://img.shields.io/pypi/pyversions/pilk)](https://pypi.org/project/pilk/)  [![downloads](https://static.pepy.tech/personalized-badge/pilk?period=total&units=international_system&left_color=black&right_color=orange&left_text=Downloads)](https://pepy.tech/project/pilk)
