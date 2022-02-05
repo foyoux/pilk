@@ -174,10 +174,13 @@ def to_pcm(in_path: str) -> tuple[str, int]:
                 rate=sample_rate,
                 layout='mono'
             )
-            for frame in in_container.decode(in_stream):
-                frame.pts = None
-                for packet in out_stream.encode(frame):
-                    out_container.mux(packet)
+            try:
+               for frame in in_container.decode(in_stream):
+                  frame.pts = None
+                  for packet in out_stream.encode(frame):
+                     out_container.mux(packet)
+            except:
+               pass
     return out_path, sample_rate
 
 
