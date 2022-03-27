@@ -19,11 +19,11 @@ pip install pilk
 [**SILK**](https://en.wikipedia.org/wiki/SILK) 是一种语音编码格式，由 [**Skype**](https://en.wikipedia.org/wiki/Skype_Technologies)
 公司研发，网上可找到的最新版本是 2012 发布的。
 
-**SILK** 原始代码已上传到 [v0.0.1 release](https://github.com/foyoux/pilk/releases/tag/v0.0.1) , 包含规范文档
+**SILK** 原始代码已上传到 [Release](https://github.com/foyoux/pilk/releases/tag/v0.0.1) , 包含规范文档
 
 **Tencent** 系语音支持来自 [silk-v3-decoder](https://github.com/kn007/silk-v3-decoder)
 
-[v0.0.1 release ](https://github.com/foyoux/pilk/releases/tag/v0.0.1)
+[Release ](https://github.com/foyoux/pilk/releases/tag/v0.0.1)
 中也包含 [silk-v3-decoder](https://github.com/kn007/silk-v3-decoder) 重编译的 **x64-win**
 版本，支持中文，[源代码](https://github.com/foyoux/silk-codec)
 
