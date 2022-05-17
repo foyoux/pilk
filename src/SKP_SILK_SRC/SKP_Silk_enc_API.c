@@ -118,23 +118,6 @@ SKP_int SKP_Silk_SDK_Encode(
 
     SKP_assert(encControl != NULL);
 
-    /* Check sampling frequency first, to avoid divide by zero later */
-//    if( ( ( encControl->API_sampleRate        !=  8000 ) &&
-//          ( encControl->API_sampleRate        != 12000 ) &&
-//          ( encControl->API_sampleRate        != 16000 ) &&
-//          ( encControl->API_sampleRate        != 24000 ) &&
-//          ( encControl->API_sampleRate        != 32000 ) &&
-//          ( encControl->API_sampleRate        != 44100 ) &&
-//          ( encControl->API_sampleRate        != 48000 ) ) ||
-//        ( ( encControl->maxInternalSampleRate !=  8000 ) &&
-//          ( encControl->maxInternalSampleRate != 12000 ) &&
-//          ( encControl->maxInternalSampleRate != 16000 ) &&
-//          ( encControl->maxInternalSampleRate != 24000 ) ) ) {
-//        ret = SKP_SILK_ENC_FS_NOT_SUPPORTED;
-//        SKP_assert( 0 );
-//        return( ret );
-//    }
-
     /* Set encoder parameters from control structure */
     API_fs_Hz = encControl->API_sampleRate;
     max_internal_fs_kHz = (SKP_int) (encControl->maxInternalSampleRate >> 10) + 1;   /* convert Hz -> kHz */
