@@ -25,6 +25,10 @@ ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ***********************************************************************/
 
+/*
+ * https://docs.python.org/zh-cn/3/c-api/intro.html#include-files
+ * 官方推荐总是定义 **PY_SSIZE_T_CLEAN** 宏
+ * */
 #define PY_SSIZE_T_CLEAN
 
 #include <Python.h>
