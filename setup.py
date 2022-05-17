@@ -4,8 +4,10 @@ from setuptools import setup, Extension
 
 SKP_SILK_SRC = 'src/SKP_SILK_SRC/'
 sources = glob(SKP_SILK_SRC + '*.c')
+# noinspection SpellCheckingInspection
 sources.append('src/pilkmodule.c')
 
+# noinspection SpellCheckingInspection
 pilkmodule = Extension(
     name='pilk._pilk',
     sources=sources,
@@ -15,6 +17,7 @@ pilkmodule = Extension(
 with open('README.md', encoding='utf8') as f:
     long_description = f.read()
 
+# noinspection SpellCheckingInspection
 setup(
     name='pilk',
     version='0.0.2',
