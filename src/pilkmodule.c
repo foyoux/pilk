@@ -33,6 +33,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include <Python.h>
 
+#include "SKP_Silk_SDK_API.h"
+
 // 声明自定义错误
 static PyObject *PilkError;
 
@@ -101,7 +103,6 @@ PyInit__pilk(void) {
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "SKP_Silk_SDK_API.h"
 
 /* Define codec specific settings */
 #define ENCODE_MAX_BYTES_PER_FRAME     250 // Equals peak bitrate of 100 kbps
