@@ -1,2 +1,3 @@
 include src/interface/*.h
 include src/SKP_SILK_SRC/*.h
+include src/silk/*.h

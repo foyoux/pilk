@@ -3,7 +3,7 @@ from glob import glob
 from setuptools import setup, Extension
 
 SKP_SILK_SRC = 'src/SKP_SILK_SRC/'
-sources = glob(SKP_SILK_SRC + '*.c')
+sources = glob(SKP_SILK_SRC + '*.c') + glob('src/silk/*.c')
 # noinspection SpellCheckingInspection
 sources.append('src/pilkmodule.c')
 
@@ -11,7 +11,7 @@ sources.append('src/pilkmodule.c')
 pilkmodule = Extension(
     name='pilk._pilk',
     sources=sources,
-    include_dirs=[SKP_SILK_SRC, 'src/interface']
+    include_dirs=[SKP_SILK_SRC, 'src/interface', 'src/silk']
 )
 
 with open('README.md', encoding='utf8') as f:
@@ -20,7 +20,7 @@ with open('README.md', encoding='utf8') as f:
 # noinspection SpellCheckingInspection
 setup(
     name='pilk',
-    version='0.1.0',
+    version='0.2.0',
     description='python silk voice library',
     long_description=long_description,
     long_description_content_type='text/markdown',

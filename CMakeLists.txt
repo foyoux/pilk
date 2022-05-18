@@ -16,7 +16,7 @@ link_directories(${PYTHON_HOME}/libs)
 include_directories(src/interface)
 include_directories(src/SKP_SILK_SRC)
 
-add_library(pilk SHARED src/pilkmodule.c)
+add_library(pilk SHARED src/pilkmodule.c src/silk/pilk_encode.c src/silk/pilk_decode.c)
 
 add_subdirectory(src/SKP_SILK_SRC)
 
