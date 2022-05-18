@@ -1,9 +1,12 @@
+from .SilkDecoder import SilkDecoder
+from .SilkEncoder import SilkEncoder
 from ._pilk import *
 
 __title__ = 'pilk'
 __description__ = 'python silk codec binding'
 __url__ = 'https://github.com/foyoux/pilk'
 __version__ = '0.0.2'
+# noinspection SpellCheckingInspection
 __author__ = 'foyou'
 __author_email__ = 'yimi.0822@qq.com'
 __license__ = 'Apache 2.0'
