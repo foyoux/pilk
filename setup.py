@@ -20,7 +20,7 @@ with open('README.md', encoding='utf8') as f:
 # noinspection SpellCheckingInspection
 setup(
     name='pilk',
-    version='0.2.0',
+    version='0.2.1',
     description='python silk voice library',
     long_description=long_description,
     long_description_content_type='text/markdown',
@@ -39,6 +39,7 @@ setup(
     package_data={
         'pilk': ['_pilk.pyi']
     },
+    install_requires=['typing_extensions'],
     classifiers=[
         'Development Status :: 4 - Beta',
         'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',

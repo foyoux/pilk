@@ -1,5 +1,5 @@
 """silk 编码器"""
-from typing import Literal
+from typing_extensions import Literal
 
 from ._pilk import encode
 
