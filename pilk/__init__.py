@@ -1,3 +1,6 @@
+import tempfile
+import wave
+
 from .SilkDecoder import SilkDecoder
 from .SilkEncoder import SilkEncoder
 from ._pilk import *
@@ -36,3 +39,14 @@ def get_duration(silk_path: str, frame_ms: int = 20) -> int:
             i += 1
             silk.seek(silk.tell() + size)
         return i * frame_ms
+
+
+def silk_to_wav(silk: str, wav: str, rate: int = 24000):
+    """silk 文件转 wav"""
+    pcm_path = tempfile.mktemp(suffix='.pcm')
+    decode(silk, pcm_path, pcm_rate=rate)
+    with open(pcm_path, 'rb') as pcm:
+        with wave.open(wav, 'wb') as f:
+            # noinspection PyTypeChecker
+            f.setparams((1, 2, rate, 0, 'NONE', 'NONE'))
+            f.writeframes(pcm.read())
