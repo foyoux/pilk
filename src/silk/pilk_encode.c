@@ -43,7 +43,7 @@ void swap_endian(
 #endif
 
 // 声明自定义错误
-PyObject *PilkError;
+extern PyObject *PilkError;
 
 PyObject *
 silk_encode(PyObject *Py_UNUSED(module), PyObject *args, PyObject *keyword_args) {
