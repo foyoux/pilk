@@ -21,7 +21,7 @@
 static SKP_int32 rand_seed = 1;
 
 // 声明自定义错误
-PyObject *PilkError;
+extern PyObject *PilkError;
 
 PyObject *
 silk_decode(PyObject *Py_UNUSED(module), PyObject *args, PyObject *keyword_args) {
