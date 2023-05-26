@@ -59,10 +59,8 @@ def get_duration(silk_path: str, frame_ms: int = 20) -> int:
             size = silk.read(2)
             if len(size) != 2:
                 break
-            size = size[0] + size[1] << 8
-            if not tencent and size == 0xffff:
-                break
             i += 1
+            size = size[0] + size[1] * 16
             silk.seek(silk.tell() + size)
         return i * frame_ms
 ```
