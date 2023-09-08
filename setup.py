@@ -39,12 +39,9 @@ setup(
     package_data={
         'pilk': ['_pilk.pyi']
     },
-    install_requires=['typing_extensions'],
+    install_requires=['typing_extensions;python_version<"3.8"'],
     classifiers=[
-        'Development Status :: 4 - Beta',
         'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
-        'Intended Audience :: End Users/Desktop',
-        'Natural Language :: Chinese (Simplified)',
         'Operating System :: Microsoft :: Windows',
         'Operating System :: POSIX',
         'Programming Language :: C',
@@ -56,6 +53,7 @@ setup(
         'Programming Language :: Python :: 3.9',
         'Programming Language :: Python :: 3.10',
         'Programming Language :: Python :: 3.11',
+        'Programming Language :: Python :: 3.12',
         'Topic :: Multimedia :: Sound/Audio'
     ],
 )

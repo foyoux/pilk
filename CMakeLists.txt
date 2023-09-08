@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.21)
-project(pilk VERSION 0.2.3)
+project(pilk VERSION 0.2.4)
 
 # 设置编译类型，也可在CLION设置中设置
 # set(CMAKE_BUILD_TYPE Release)
