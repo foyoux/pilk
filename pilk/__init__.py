@@ -12,7 +12,7 @@ __version__ = '0.2.4'
 # noinspection SpellCheckingInspection
 __author__ = 'foyou'
 __author_email__ = 'yimi.0822@qq.com'
-__license__ = ' GPL-3.0'
+__license__ = 'GPL-3.0'
 __copyright__ = f'Copyright 2022~2023 {__author__}'
 __ide__ = 'PyCharm - https://www.jetbrains.com/pycharm/'
 
