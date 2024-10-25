@@ -93,7 +93,7 @@ data**](https://en.wikipedia.org/wiki/Pulse-code_modulation) 完成的
 
 2. PCM ➜ 音频文件
     ```bat
-    ffmpeg -y -f s16le -ar <采样率> ~-ac <声道数>~ -i <PCM输入文件> <音频输出文件>
+    ffmpeg -y -f s16le -ar <采样率> -ac <声道数> -i <PCM输入文件> <音频输出文件>
     ```
     1. `-f`: 这里必须为 `s16le`, 同样也是由 **SILK** 决定的
     2. `-ar`: 同上
