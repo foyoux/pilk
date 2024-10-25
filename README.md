@@ -93,13 +93,13 @@ data**](https://en.wikipedia.org/wiki/Pulse-code_modulation) 完成的
 
 2. PCM ➜ 音频文件
     ```bat
-    ffmpeg -y -f s16le -i <PCM输入文件> -ar <采样率> -ac <声道数> <音频输出文件>
+    ffmpeg -y -f s16le -ar <采样率> ~-ac <声道数>~ -i <PCM输入文件> <音频输出文件>
     ```
     1. `-f`: 这里必须为 `s16le`, 同样也是由 **SILK** 决定的
     2. `-ar`: 同上
     3. `-ac`: 含义同上，值随意
     4. `<音频输出文件>`: 扩展名要准确，没有指定格式时，**ffmpeg** 会根据给定的输出文件扩展名来判断需要输出的格式
-    5. example3: `ffmpeg -y -f s16le -i test.pcm test.mp3`
+    5. example3: `ffmpeg -y -f s16le -ar 16000 -i test.pcm test.mp3`
 
 > ffmpeg 也可以使用 python ffmpeg binding 替换，推荐 [PyAV](https://github.com/PyAV-Org/PyAV) 大家自行研究，这里不再啰嗦。
 
