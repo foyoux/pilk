@@ -1,3 +1,4 @@
+import os
 import tempfile
 import wave
 
@@ -48,3 +49,7 @@ def silk_to_wav(silk: str, wav: str, rate: int = 24000):
             # noinspection PyTypeChecker
             f.setparams((1, 2, rate, 0, 'NONE', 'NONE'))
             f.writeframes(pcm.read())
+    try:
+        os.remove(pcm_path)
+    except:  # noqa
+        pass
